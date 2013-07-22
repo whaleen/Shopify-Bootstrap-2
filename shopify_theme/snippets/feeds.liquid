@@ -1,0 +1,11 @@
+{{ 'http://www.google.com/jsapi' | script_tag }}
+{{ 'http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js' | script_tag }}
+{{ 'jquery.gfeed.js' | asset_url | script_tag }}
+
+<script type="text/javascript">
+  jQuery.noConflict();
+  // when the DOM is ready, convert the feed anchors into feed content.
+  jQuery(function($) { 
+    $('a.feed').gFeed( { target: '#feeds', tabs: true } ); 
+  }); 
+</script>

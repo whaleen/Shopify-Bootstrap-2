@@ -1,0 +1,73 @@
+<div class="sixteen columns">
+  <div class="section clearfix">
+    <h1>{{ page.title }}</h1>
+  </div>
+</div>
+
+
+
+
+
+
+
+<div class="container">
+<div class="sixteen columns">
+
+<div class="four columns alpha">
+<h6>A Few Ways To Reach Us</h6>
+<ul>
+	<li><a href="http://twitter.com/#!/dangervalley">Twitter</a></li>
+	<li><a href="http://www.facebook.com/pages/Danger-Valley/247544051931784">Facebook</a></li>
+	<li><a href="https://plus.google.com/u/0/110036182623208748382/photos">Google +</a></li>
+</ul>
+
+
+ 	{% form 'contact' %}
+	  {% if form.posted_successfully? %}
+	    <p class="quote">Thanks for the note! We'll get back to you as soon as possible.</p>
+	  {% endif %}
+
+	  {% if form.errors %}
+	    <p class="quote">Not all the fields have been filled in correctly. Please try again.</p>
+	  {% endif %}
+
+	  <div class="section clearfix">  
+
+
+			<h6>Hurl a Quick Note in our General Direction</h6>
+	         <label for="contact_form_name">Name <span class="red">*</span></label>
+	         <input type="text" id="contact_form_name" name="contact[name]" value="{{ form.name }}" />
+
+	         <label for="contact_form_email">Email <span class="red">*</span></label>
+	         <input type="text" id="contact_form_email" name="contact[email]" value="{{ form.email }}"/>
+
+	         <label for="contact_message">Message</label>       
+	         <textarea id="contact_message" name="contact[question]" rows="5">{{ form.question }}</textarea>
+
+	          <input type='submit' class="submit action_button" />
+	  </div>  
+	{% endform %}
+	
+</div>
+
+
+<div class="four columns">
+<h6>Are you in town?</h6>
+
+<p>Feel free to meander on in for a cool glass of water and to take a look around our shop.</p>
+<p>We are waiting for you.</p>
+
+</div>
+	
+
+
+<div class="eight columns omega">
+
+          ...
+
+</div>
+
+
+
+</div>
+</div>

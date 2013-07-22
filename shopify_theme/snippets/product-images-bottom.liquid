@@ -1,0 +1,55 @@
+{%if settings.product_images_position == 'left' %}
+  <div class="ten columns alpha">
+    <div id="feature_image" class="product_image_col {% if product.images.size > 1 %}multiple_product_images{% else %}single_product_image{% endif %}">
+      <a href="{{ product.featured_image | product_img_url: 'original' }}" data-rel="#featured_image" title="{{ product.featured_image.alt | escape }}"><img src="{{ product.featured_image | product_img_url: 'grande' }}" alt="{{ product.featured_image.alt | escape }}" itemprop="image" /></a>
+    </div>
+
+    {% if product.images.size > 1 %}
+      <div class="thumbnails product_image_col">
+        {% for image in product.images %}
+          <div class="two columns thumb {% cycle 'alpha', '', '', '', 'omega'  %}">
+            <a href="{{ image | product_img_url: 'original' }}" id="product-thumb-{{ forloop.index }}" data-rel="#{{ forloop.index }}" title="{{ image.alt | escape }}"><img src="{{ image | product_img_url: 'grande' }}" alt="{{ image.alt | escape }}" /></a>
+          </div>
+          
+          {% cycle '', '', '', '', '<div class="clear"></div>'  %}
+        {% endfor %}
+        </div>
+    {% endif %}
+  
+  </div>
+
+{% else %}
+
+  <div class="ten columns omega">
+    <div id="feature_image" class="product_image_col {% if product.images.size > 1 %}multiple_product_images{% else %}single_product_image{% endif %}">
+      <a href="{{ product.featured_image | product_img_url: 'original' }}" data-rel="#featured_image" title="{{ product.featured_image.alt | escape }}"><img src="{{ product.featured_image | product_img_url: 'grande' }}" alt="{{ product.featured_image.alt | escape }}" itemprop="image" /></a>
+    </div>
+    
+    {% if product.images.size > 1 %}
+      <div class="thumbnails product_image_col">
+        {% for image in product.images %}
+          <div class="two columns thumb {% cycle 'alpha', '', '', '', 'omega'  %}">
+            <a href="{{ image | product_img_url: 'original' }}" id="product-thumb-{{ forloop.index }}" data-rel="#{{ forloop.index }}" title="{{ image.alt | escape }}"><img src="{{ image | product_img_url: 'grande' }}" alt="{{ image.alt | escape }}" /></a>
+          </div>
+          
+          {% cycle '', '', '', '', '<div class="clear"></div>'  %}
+        {% endfor %}
+        </div>
+    {% endif %}
+    
+  </div>
+  
+  
+{% endif %}
+
+<div id="featured_image" class="modal modal_product" data-thumb-id="1">
+  <img src="{{ product.featured_image | product_img_url: 'original' }}" alt="{{ product.featured_image.alt | escape }}" />
+</div>
+
+{% for image in product.images %}
+  <div id="{{ forloop.index }}" class="modal modal_product" data-thumb-id="{{ forloop.index }}">
+    <img src="{{ image | product_img_url: 'original' }}" alt="{{ image.alt | escape }}" />
+  </div>
+{% endfor %}
+
+
