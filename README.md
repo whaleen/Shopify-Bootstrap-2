@@ -1,5 +1,1 @@
-Shopify Template uses Twitter Bootstrap 2
-===============
-
-Wrote a size filter for products.
-
+Shopify theme using Twitter Boostrap 2. Was used for production in a retail store where many product variants required a fair amout of custom liquid. 
